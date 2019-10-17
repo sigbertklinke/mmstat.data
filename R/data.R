@@ -27,7 +27,6 @@ data <- function(..., list = character(), package = NULL, lib.loc = NULL,
                       wwwdatalist = getOption('wwwdata')) {
   names <- c(as.character(substitute(list(...))[-1L]), list)
   for (name in names) {
-    browser()
     if (is.null(wwwdatalist[[name]])) {
       args <- list(name, package=package, lib.loc=lib.loc, verbose=verbose, envir=envir, overwrite=overwrite)
       do.call(utils::data, args)
@@ -38,7 +37,7 @@ data <- function(..., list = character(), package = NULL, lib.loc = NULL,
         dir.create(libdir, showWarnings = FALSE)
         wwwdata <- paste0(libdir, '/wwwdata.txt')
         if (!file.exists(wwwdata)) 
-          download.file('https://github.com/sigbertklinke/wwwdata/raw/master/wwwdata/wwwdata.txt', 
+          download.file('https://github.com/sigbertklinke/mmstat.data/raw/master/wwwdata/wwwdata.txt', 
                         wwwdata, quiet=TRUE)
         sources <- readLines(wwwdata)
         for (source in sources) {

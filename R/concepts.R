@@ -14,7 +14,7 @@
 #' concepts()
 #' concepts('stats')
 #' \dontrun{concepts(NULL)}
-concepts <- function(pkgs="wwwdata") {
+concepts <- function(pkgs="mmstat.data") {
   if (is.null(pkgs)) pkgs <- row.names(installed.packages())
   tools.Rd_get_metadata <- get('.Rd_get_metadata', envir=asNamespace('tools'), inherits=FALSE)
   cl <- c()

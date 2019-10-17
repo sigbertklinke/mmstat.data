@@ -4,7 +4,7 @@
 \alias{concepts}
 \title{concepts}
 \usage{
-concepts(pkgs = "wwwdata")
+concepts(pkgs = "mmstat.data")
 }
 \arguments{
 \item{pkgs}{text: names of one or more packages (default: \code{"wwwdata"})}

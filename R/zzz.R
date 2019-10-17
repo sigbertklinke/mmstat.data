@@ -9,7 +9,7 @@
   if (!file.exists(libdir)) dir.create(libdir, showWarnings = FALSE) 
   wwwdata <- paste0(libdir, '/wwwdata.txt')
   if (!file.exists(wwwdata)) 
-    download.file('https://github.com/sigbertklinke/wwwdata/raw/master/wwwdata/wwwdata.txt', 
+    download.file('https://github.com/sigbertklinke/mmstat.data/raw/master/wwwdata/wwwdata.txt', 
                    wwwdata, quiet=TRUE)
   sources <- readLines(wwwdata)
   for (source in sources) {
