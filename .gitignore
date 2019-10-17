@@ -1,4 +1,6 @@
 .Rproj.user
+.Rhistory
+.RData
 wwwdata/tmp/*
 wwwdata/uci/*
 inst/doc
