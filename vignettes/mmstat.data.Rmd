@@ -1,0 +1,87 @@
+---
+title: "mmstat,data"
+author: 
+- name: "Sigbert Klinke" 
+  email: sigbert@hu-berlin.de
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  html_document:
+    toc: true
+vignette: > 
+  %\VignetteIndexEntry{wwwdata} 
+  %\VignetteEngine{knitr::rmarkdown} 
+  \usepackage[utf8]{inputenc} 
+---
+
+```{r, echo = FALSE, message = FALSE}
+library("wwwdata")
+```
+
+# General
+ 
+`mmstat.data` is a package to load data sets either locally of fromb internet. 
+
+# `wwwdata`
+
+## Basic usage
+
+You load a data set by
+
+```{r}
+library("mmstat.data")
+data(dasl.titanic, verbose=TRUE)
+str(dasl.titanic)
+``` 
+
+The package masks the `data` command from the package `utils`. However, when the data set name is not found in list
+of available commands then `utils::data` will be called.
+
+```{r}
+data(Titanic)
+str(Titanic)
+``` 
+
+An overview of available data set can be found via
+
+```{r}
+library("mmstat.data")
+ # numbers of integrated data sets
+length(getOption("wwwdata"))
+# names of the first six data sets
+head(names(getOption("wwwdata")))
+# names and URLs of the first six data sets
+head(getOption("wwwdata"))
+``` 
+
+## How does it work
+
+During installation or the first call of `library("mmstat.data")` in the home directory a directory `.mmstat` is created. It downloads once the file [`https://github.com/sigbertklinke/wwwdata/raw/master/wwwdata/wwwdata.txt`](https://github.com/sigbertklinke/wwwdata/tree/master/wwwdata) which contains the location of the data project. For each project it downloads the `zzz.R` file which sets the data and URL names during loading. For an example see [`ansur2/zzz.r`](https://github.com/sigbertklinke/wwwdata/tree/master/wwwdata/ansur2).
+
+Whenever a data set is loaded then it will stored in the local directory `.mmstat`, too. Subsequent calls will take the data from there.
+
+# `concepts`
+
+`concepts` extracts all keywords or concepts from the Rd files of a package.
+
+```{r}
+# concepts and keywords from wwwdata
+concepts()
+# concepts and keywords from stats
+concepts('stats')
+```
+```{r, eval=FALSE}
+# concepts and keywords from all installed packages (takes some time!)
+concepts(NULL)
+```
+
+# `extract`
+
+# Frequently asked questions
+
+## Does the package require a permanent internet connection?
+
+No, only the first time the package or one of the data sets is loaded. It uses the local directory `.mmstat` for storage to minimize the number of downloads. 
+
+## Which data sets are currently included?
+* `ansur2` (2): Anthropometric Survey of US Army Personnel from https://www.openlab.psu.edu/ansur2/
+* `dasl` (519): The Data And Story Library from https://dasl.datadescription.com/ 

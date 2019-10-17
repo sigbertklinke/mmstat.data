@@ -1,0 +1,6 @@
+library("wwwdata")
+wwwdata(ansur2.male)
+wwwdata(ansur2.female)
+ansur2 <- merge(ansur2.male, ansur2.female, all=TRUE)
+ansur2 <- as.data.frame(lapply(ansur2, function(v) { if(is.character(v)) iconv(v, to="UTF-8") else v }))
+save(ansur2, file="ansur2.rda", version=2, compress="bzip2")

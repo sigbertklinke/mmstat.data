@@ -1,0 +1,17 @@
+Package: mmstat.data
+Title: Data sets used in MM-Stat. Lerger data sets are imported from the internet (GitHub).
+Version: 0.1
+Date: 2019-10-04
+Author: Sigbert Klinke
+Maintainer: Sigbert Klinke <sigbert@hu-berlin.de>
+Description: The package contains data used in MM-Stat. Larger data sets are imported a data set from the internet (GitHub). By default the data are stored at https://github.com/sigbertklinke/wwwdata/. Variables, keywords and concepts can be extracted.
+License: GPL-3
+Depends: 
+  R (>= 2.10)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
